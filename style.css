@@ -4,7 +4,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #3B82F6; /* Background similar to your image */
+    background-color: transparent; /* Background similar to your image */
     font-family: 'Inter', sans-serif; /* Or any clean sans-serif font */
 }
 
@@ -13,7 +13,7 @@ body {
     border-radius: 20px;
     padding: 30px;
     color: #FFF;
-    width: 380px; /* Adjust width as needed */
+    width: 600px; /* Adjust width as needed */
     box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2);
 }
 
@@ -43,10 +43,10 @@ body {
     width: 12px; /* Size of the dot */
     height: 12px;
     border-radius: 50%;
-    background-color: #333; /* Default (unfilled) dot color */
+    background-color: #FFF; /* Default (unfilled) dot color */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .dot.filled {
-    background-color: #FFF; /* Filled dot color */
+    background-color: #333; /* Filled dot color */
 }
