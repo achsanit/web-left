@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #3B82F6; /* Background similar to your image */
+    font-family: 'Inter', sans-serif; /* Or any clean sans-serif font */
+}
+
+.widget-container {
+    background-color: #000;
+    border-radius: 20px;
+    padding: 30px;
+    color: #FFF;
+    width: 380px; /* Adjust width as needed */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.year {
+    color: #DDD;
+}
+
+.days-left {
+    color: #DDD;
+}
+
+.dots-grid {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr); /* 25 dots per row, adjust as needed */
+    gap: 8px; /* Space between dots */
+}
+
+.dot {
+    width: 12px; /* Size of the dot */
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333; /* Default (unfilled) dot color */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.dot.filled {
+    background-color: #FFF; /* Filled dot color */
+}
