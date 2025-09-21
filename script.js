@@ -3,33 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const daysLeftSpan = document.getElementById('daysLeft');
     const dotsContainer = document.getElementById('dotsContainer');
 
-    const totalDots = 365; // Representing days in a year (adjust for leap year if desired)
-    const dotsPerRow = 25; // How many dots you want in each row
+    // ✅ Set your custom start and end dates
+    const startDate = new Date("2025-04-01"); // example: Jan 1, 2025
+    const endDate = new Date("2026-03-31");   // example: Dec 31, 2025
+
+    const dotsPerRow = 35; // How many dots you want in each row
 
     function updateWidget() {
         const now = new Date();
-        const year = now.getFullYear();
-        currentYearSpan.textContent = year;
 
-        const startOfYear = new Date(year, 0, 1);
-        const endOfYear = new Date(year + 1, 0, 1);
+        // For info display
+        currentYearSpan.textContent = "Work in PAC";
 
-        const diffTime = Math.abs(now - startOfYear);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Days passed
+        // Total days in range
+        const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
-        const totalDaysInYear = Math.ceil(Math.abs(endOfYear - startOfYear) / (1000 * 60 * 60 * 24));
-        const remainingDays = totalDaysInYear - diffDays;
-        
+        // Days passed since startDate
+        const diffDays = Math.max(0, Math.ceil((now - startDate) / (1000 * 60 * 60 * 24)));
+
+        // Remaining days (clamp to 0)
+        const remainingDays = Math.max(0, totalDays - diffDays);
         daysLeftSpan.textContent = `${remainingDays} days left`;
 
-        // Calculate how many dots should be filled
-        const filledDotsCount = Math.round((diffDays / totalDaysInYear) * totalDots);
+        // Dots logic
+        const filledDotsCount = Math.min(totalDays, diffDays);
 
         // Clear existing dots
         dotsContainer.innerHTML = '';
 
-        // Create and append dots
-        for (let i = 0; i < totalDots; i++) {
+        // Create dots
+        for (let i = 0; i < totalDays; i++) {
             const dot = document.createElement('div');
             dot.classList.add('dot');
             if (i < filledDotsCount) {
@@ -38,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
             dotsContainer.appendChild(dot);
         }
 
-        // Set the grid template columns dynamically based on dotsPerRow
+        // Grid layout
         dotsContainer.style.gridTemplateColumns = `repeat(${dotsPerRow}, 1fr)`;
     }
 
     // Initial update
     updateWidget();
 
-    // Update every minute to keep days left accurate
-    setInterval(updateWidget, 60 * 1000); 
+    // Update every minute
+    setInterval(updateWidget, 60 * 1000);
 });

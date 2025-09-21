@@ -13,7 +13,7 @@ body {
     border-radius: 20px;
     padding: 30px;
     color: #FFF;
-    width: 600px; /* Adjust width as needed */
+    display: inline-block; /* shrink to fit content */
     box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2);
 }
 
@@ -35,7 +35,7 @@ body {
 
 .dots-grid {
     display: grid;
-    grid-template-columns: repeat(25, 1fr); /* 25 dots per row, adjust as needed */
+    grid-template-columns: repeat(30, 1fr); /* 25 dots per row, adjust as needed */
     gap: 8px; /* Space between dots */
 }
 
