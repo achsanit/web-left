@@ -3,26 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const daysLeftSpan = document.getElementById('daysLeft');
     const dotsContainer = document.getElementById('dotsContainer');
 
-    // ✅ Set your custom start and end dates
-    const startDate = new Date("2025-04-01"); // example: Jan 1, 2025
-    const endDate = new Date("2026-03-31");   // example: Dec 31, 2025
+    const startDate = new Date(2025, 3, 1, 0, 0, 0);
+    const endDate = new Date(2026, 2, 31, 0, 0, 0);
 
     const dotsPerRow = 35; // How many dots you want in each row
 
     function updateWidget() {
         const now = new Date();
+        // console.log("current date: " + now);
+        // console.log("startDate: " + startDate);
 
         // For info display
         currentYearSpan.textContent = "Work in PAC";
 
         // Total days in range
         const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        // console.log("totalDays: " + totalDays);
 
         // Days passed since startDate
         const diffDays = Math.max(0, Math.ceil((now - startDate) / (1000 * 60 * 60 * 24)));
+        // console.log("diffdays: " + diffDays);
 
         // Remaining days (clamp to 0)
         const remainingDays = Math.max(0, totalDays - diffDays);
+
+        // console.log("remainingDays: " + remainingDays);
         daysLeftSpan.textContent = `${remainingDays} days left`;
 
         // Dots logic
