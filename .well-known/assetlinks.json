@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pactindo.emoney",
+      "sha256_cert_fingerprints": [
+        "1A:57:2C:E8:8D:20:16:80:D5:0C:3E:00:71:1F:B1:5D:AF:CA:20:18:9F:24:92:40:CA:91:69:F2:A5:3B:AB:E1"
+      ]
+    }
+  }
+]
